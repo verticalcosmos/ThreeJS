@@ -1,0 +1,12 @@
+{
+  "name": "Learning ThreeJS",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite --force"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.12.7",
+    "three": "^0.173.0"
+  }
+}
