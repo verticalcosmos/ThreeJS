@@ -65,10 +65,11 @@ const sphereMaterial = new THREE.MeshStandardMaterial({
   roughness: 0.5,
   metalness: 1
 });
+
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 sphere.position.set(3, 1, 3);
 sphere.castShadow = true;
-scene.add(sphere);
+
 
 // Box
 const boxGeometry = new THREE.BoxGeometry(40, 40, 0.5);
@@ -81,7 +82,6 @@ const box = new THREE.Mesh(boxGeometry, boxMaterial);
 box.position.set(-2, 0.5, 0);
 box.rotation.set(0, 0, 0);
 box.castShadow = false;
-scene.add(box);
 box.position.z = -10;
 box.position.y = 0;
 
@@ -96,7 +96,7 @@ const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
 pyramid.position.set(0, 3, 3);
 pyramid.rotation.set(0, 0, 1);
 pyramid.castShadow = true;
-scene.add(pyramid);
+
 
 // Plane (for shadows)
 const planeGeometry = new THREE.PlaneGeometry(500, 500);
@@ -105,7 +105,21 @@ const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 plane.rotation.x = -Math.PI / 2;
 plane.position.y = -1.5;
 plane.receiveShadow = true;
-scene.add(plane);
+
+
+
+
+// Create torus geometry: (radius, tube, radialSegments, tubularSegments)
+const torusGeometry = new THREE.TorusGeometry(5, 1, 16, 100);
+const torusMaterial = new THREE.MeshNormalMaterial();
+const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+torus.castShadow = true;
+torus.receiveShadow = true;
+torus.position.set(3, 3, 0); // Adjust position as needed
+torus.rotation.set( 45, -45, 0); // Adjust position as needed
+
+
+scene.add(sphere, box, pyramid, plane, torus);
 
 // =================================================
 // LIGHTING
